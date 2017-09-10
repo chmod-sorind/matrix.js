@@ -37,20 +37,12 @@ function Symbol(x, y, speed, first, opacity) {
   this.first = first;
   this.opacity = opacity;
 
-  this.switchInterval = round(random(2, 25));
+  this.switchInterval = round(random(1, 5));
 
   this.setToRandomSymbol = function() {
     var charType = round(random(0, 5));
     if (frameCount % this.switchInterval == 0) {
-      if (charType > 1) {
-        // set it to Katakana
-        this.value = String.fromCharCode(
-          0x30A0 + round(random(0, 96))
-        );
-      } else {
-        // set it to numeric
-        this.value = round(random(0,9));
-      }
+      this.value = round(random(0, 1));
     }
   }
 
@@ -62,8 +54,8 @@ function Symbol(x, y, speed, first, opacity) {
 
 function Stream() {
     this.symbols = [];
-    this.totalSymbols = round(random(5, 35));
-    this.speed = random(5, 22);
+    this.totalSymbols = round(random(5, 55));
+    this.speed = random(5, 20);
 
   this.generateSymbols = function(x, y) {
     var opacity = 255;
